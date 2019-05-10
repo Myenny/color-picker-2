@@ -6,9 +6,10 @@ class App extends Component {
     super(props)
 
     this.state = {
-      hue: 0,
-      saturation: 0,
-      lightness: 0
+      hue: Math.ceil(Math.random() * 360),
+      saturation: Math.ceil(Math.random() * 100),
+      lightness: Math.ceil(Math.random() * 100),
+      alpha: 1
     }
   }
   // creating function to change hue
@@ -29,13 +30,28 @@ class App extends Component {
       lightness: event.target.value
     })
   }
+  getAlpha = event => {
+    this.setState({
+      alpha: event.target.value
+    })
+  }
 
   render() {
+    let color = `hsla(${this.state.hue},${this.state.saturation}%,${
+      this.state.lightness
+    }%,${this.state.alpha})`
     return (
       <div className="App">
         <h1>Color Picker</h1>
         <div className="box-container">
-          <div className="box" />
+          <div className="box-background">
+            <div
+              className="box"
+              style={{
+                backgroundColor: color
+              }}
+            />
+          </div>
           <ul>
             <li>
               Hue
@@ -67,8 +83,20 @@ class App extends Component {
                 onChange={this.getLightness}
               />
             </li>
+            <li>
+              Alpha
+              <input
+                type="range"
+                min="0"
+                max="1"
+                step=".01"
+                value={this.state.alpha}
+                onChange={this.getAlpha}
+              />
+            </li>
           </ul>
         </div>
+        <p>{color}</p>
       </div>
     )
   }

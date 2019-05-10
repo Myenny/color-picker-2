@@ -1,14 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Akronim');
+
+html {
+  background-color: antiquewhite;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: 'Akronim', cursive;
+  font-size: 50px;
 }
+
 ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .box {
@@ -17,6 +25,13 @@ ul {
   width: 70px;
   padding: 20px;
   margin: 10px;
+}
+
+.box-background {
+  background-image: url(./assets/giphy.gif);
+  background-size: 110px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .box-container {
