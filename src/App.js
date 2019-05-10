@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      hue: 0,
+      saturation: 0,
+      lightness: 0
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Color Picker</h1>
+        <div className="box-container">
+          <div className="box" />
+          <ul>
+            <li>
+              Hue
+              <input type="range" min="0" max="360" value={this.state.hue} />
+            </li>
+            <li>
+              Saturation
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={this.state.saturation}
+              />
+            </li>
+            <li>
+              Lightness
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={this.state.lightness}
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+export default App
